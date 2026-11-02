@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: render-vpn
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: UUID
+        sync: false   # set in the Render dashboard; defaults to UUID.txt value baked in the image
+      - key: WS_PATH
+        value: /vpn
